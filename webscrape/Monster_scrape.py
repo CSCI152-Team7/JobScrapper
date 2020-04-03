@@ -1,7 +1,6 @@
 # Name: Fausto Preciado
 # Date: 3/26/20
-# Id number: 110588341
-# Description: Project for CSCI-152, job scrapper
+# Description: Project for CSCI-152, job scrapper.
 # Scrapping the monster job website.
 
 from urllib.request import urlopen as uReq
