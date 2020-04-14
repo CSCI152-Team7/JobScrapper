@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JSTS testbuild</title>
+    {% block contentbg %}
+    <style>
+    body  {
+      background: rgb(0,19,36);
+      background: linear-gradient(180deg, rgba(0,19,36,1) 0%, rgba(220,223,225,1) 4%, rgba(255,255,255,1) 51%, rgba(244,250,252,1) 65%, rgba(212,236,241,1) 100%, rgba(46,125,142,1) 100%);
+    }
+    </style>
+    {% endblock %}
+  </head>
+
+  <header>
+    {% include 'navbar.html '%}
+  </header>
+    <body>
+    {% block content1 %}
+
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{% include 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'about_styles.css' %}">
+<style>
+
+
+  body  {
+    /* background: url("{% static 'ch.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    background: rgb(0,19,36);
+    background: linear-gradient(180deg, rgba(0,19,36,1) 0%, rgba(220,223,225,1) 4%, rgba(255,255,255,1) 51%, rgba(244,250,252,1) 65%, rgba(212,236,241,1) 100%, rgba(46,125,142,1) 100%);
+  }
+
+</style>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'search_styles.css' %}">
+</head>
+<body>
+  	<div class="row" id="products"></div>
+</body>
+</html>
+  <script src="{% static 'about_scripts.js' %}"></script> -->
+
+
+  <body style="color:black;">
+    <br>
+    <br>
+    <h2>Purpose</h2>
+    <button type="button" class="collapsible">Project</button>
+    <div class="content">
+      <p>
+    </div>
+    <h2>Tools</h2>
+    <button type="button" class="collapsible">Programming languages and tools</button>
+    <div class="content">
+      <p>Tools we used in devemopment of this project</p>
+      <p>Tools:</p>
+    </div>
+    <h2>About Us</h2>
+
+    <button type="button" class="collapsible">Andy M.</button>
+    <div style="color:black;" class="content">
+      <p>Education</p>
+      <li>AST in Computer Science</li><br>
+
+      <p>Programming Experience</p>
+      <li>C++ </li><br>
+      <a href="https://github.com/acmoua">
+        <img src="./img/ghub.png" alt="HTML tutorial" style="width:75px;height:75px;border:0">
+      </a>
+    </div>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{% static 'about_scripts.js' %}"></script>
