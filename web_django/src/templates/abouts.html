@@ -1,69 +1,107 @@
 {% include 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="{% static 'about_styles.css' %}">
-<style>
-
-
-  body  {
-    /* background: url("{% static 'ch.jpg' %}") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
-    background: rgb(0,19,36);
-    background: linear-gradient(180deg, rgba(0,19,36,1) 0%, rgba(220,223,225,1) 4%, rgba(255,255,255,1) 51%, rgba(244,250,252,1) 65%, rgba(212,236,241,1) 100%, rgba(46,125,142,1) 100%);
-  }
-
-</style>
-<!-- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html  lang="fr">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="{% static 'search_styles.css' %}">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
 </head>
+
 <body>
-  	<div class="row" id="products"></div>
+  <h1>About Us</h1>
+
+  <button type="button" class="collapsible">Purpose</button>
+  <div class="content">
+  <ul style="list-style-type:disc;">
+  <li>CSCI-152 Project - Spring 2020</li>
+  <li>The idea behind JobScrapper(name pending) web app is to streamline the job hunting experience. Currently, there are many sites dedicated to finding jobs. However, these sites only post information they receive from potential employers. There is no standardized format for employers to follow, and that oftentimes leads to job posting with unclear and unnecessary information. Through the use of machine learning, text summarization, and web scraping, our web app will make the job-hunting process less tedious for potential job-hunters.</li>
+  </ul>
+  </div>
+
+  <button type="button" class="collapsible">Tools</button>
+  <div class="content">
+    <ul style="list-style-type:disc;">
+  <li>Github - repository hosting service</li>
+  <li>Python - general purpose and high level programming language</li>
+  <li>Django - high-level Python Web framework</li>
+  <li>SQlite - Embedded database software for local/client storage</li>
+  <li>Lucidchart - web-based proprietary platform used to allow users to collaborate on drawing, revising and sharing charts and diagrams</li>
+  <li>Discord - VoIP application that specializes in text, image, video and audio communication </li>
+  </ul>
+  </div>
+
+  <button type="button" class="collapsible">About Us</button>
+  <div class="content">
+    <p>Aizaz Ahmad</p>
+    <button type="button" class="collapsible">About Me</button>
+    <div class="content">
+      <p>stuff here.</p>
+    </div>
+    <p>Salvador Chavarin</p>
+    <button type="button" class="collapsible">About Me</button>
+    <div class="content">
+      <p>stuff here.</p>
+    </div>
+    <p>Andy Moua</p>
+    <button type="button" class="collapsible">About Me</button>
+    <div class="content">
+      <p>stuff here.</p>
+    </div>
+    <p>Fausto G. Preciado</p>
+    <button type="button" class="collapsible">About Me</button>
+    <div class="content">
+      <p>stuff here.</p>
+    </div>
+    <br><br><br><br><br><br><br>
+  </div>
+
+
+    <footer>
+
+    </footer>
+
+
+
+    <script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+  </script>
 </body>
 </html>
-  <script src="{% static 'about_scripts.js' %}"></script> -->
-
-
-  <body style="color:black;">
-    <br>
-    <br>
-    <h2>Purpose</h2>
-    <button type="button" class="collapsible">Project</button>
-    <div class="content">
-      <p>
-    </div>
-    <h2>Tools</h2>
-    <button type="button" class="collapsible">Programming languages and tools</button>
-    <div class="content">
-      <p>Tools we used in devemopment of this project</p>
-      <p>Tools:</p>
-    </div>
-    <h2>About Us</h2>
-
-    <button type="button" class="collapsible">Andy M.</button>
-    <div style="color:black;" class="content">
-      <p>Education</p>
-      <li>AST in Computer Science</li><br>
-
-      <p>Programming Experience</p>
-      <li>C++ </li><br>
-      <a href="https://github.com/acmoua">
-        <img src="./img/ghub.png" alt="HTML tutorial" style="width:75px;height:75px;border:0">
-      </a>
-    </div>
-
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="{% static 'about_scripts.js' %}"></script>
