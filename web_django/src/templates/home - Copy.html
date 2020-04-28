@@ -1,0 +1,98 @@
+{% include 'base.html' %}
+{% load static %}
+
+<!--
+<p>Just an img to see if static works</p>
+<img src="{% static 'tree.jpg' %}" alt="My image"/> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title id="title">JSTS</title>
+    <style media="screen">
+      html,body{
+      height: 100%;
+      }
+
+      body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: auto;
+        background-color: #252629;
+      }
+
+      #welcome {
+      top: 30%;
+      	font-family: Helvetica, Arial, sans-serif;
+      max-width: 100%;
+      box-align: center;
+      font-size: 5vw; /*or vh depends*/
+      text-align: center;
+      color: black;
+      margin: auto;
+      position: relative;
+      }
+
+      @media screen and (min-width: 1200px){
+      #welcome{
+      top: 20%;
+      font-size: 17vh;}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="welcome">
+      JSTS <br/>
+      <div id="message"></div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+
+const fields = ["Is", "This", "Site", "Working?"];
+var el = 0; //Indicate how element of fields is currently select for dynamic effect (value 0 to 3)
+var flag = 0; //status: indicate the function in execution: 0 writer, 1 eraser
+var job = 0; //is current job finish?
+//Call function every n millisecond
+setInterval(function(){
+    var txt = fields[el];
+    var i = 0;
+    var l = txt.length-1;
+    var speed = 50;
+
+    if (job !=0){ return }
+
+    function typeWriter() {
+        if (i < txt.length && flag==0) {
+            job = 1;
+            document.getElementById("message").textContent += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+        else{
+            flag=1;
+            job = 0;
+        }
+    }
+
+    //Erase text in use
+    function typeEraser() {
+        if (l >= 0 && flag==1) {
+            job = 1;
+            document.getElementById("message").textContent = txt.substring(0,l);
+            l--;
+            setTimeout(typeEraser, speed);
+        }
+
+        else{
+            flag=0;
+            job = 0;
+            el = (el==3)? 0: el+1;
+        }
+    }
+
+    if(flag==0){ typeWriter(); }
+    else { typeEraser();}
+}, 2000);
+
+</script>
