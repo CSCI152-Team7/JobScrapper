@@ -87,12 +87,12 @@ for z in range(len(df)):
     ranked_sentences = ''
     ranked_sentences = sorted(((scores[i],s) for i,s in enumerate(sentences)), reverse=True)
     text = get_rank(ranked_sentences)
-    t = summarize(text)
+    t = summarize(text,ratio=0.15)
     if (t == ''):
         df.fields[z]['description'] = text
     else:
         df.fields[z]['description'] = t
-    df.fields[z]['description'] = text
+    
 
 x={}
 for i in range(len(df)):
