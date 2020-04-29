@@ -1,0 +1,23 @@
+for requirements
+____________________________________
+create a virtualenv if you want
+run "pip install -r requirements.txt"
+
+
+--------------------------
+How to run the Server
+___________________________
+from src folder
+use commandline
+"python manage.py runserver"
+connect through "http://127.0.0.1:8000/"
+
+
+
+____________________________
+how to use locust stress tester
+_____________________________
+from src folder
+use commmandline
+"locust -f test.py --web-host localhost"
+connect through "http://localhost:8089"
