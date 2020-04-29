@@ -1,0 +1,142 @@
+{% include 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="description" content="Child Rows">
+  <title></title>
+  <meta charset="utf-8" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style media="screen">
+    td.details-control {
+      text-align: center;
+      color: forestgreen;
+      cursor: pointer;
+    }
+    tr.shown td.details-control {
+      text-align: center;
+      color: red;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+  <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/af-2.3.4/b-1.6.1/sp-1.0.1/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/af-2.3.4/b-1.6.1/sp-1.0.1/datatables.min.js"></script>
+</head>
+
+<body>
+  <table width="100%" class="display" id="example" cellspacing="0">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Job Title</th>
+        <th>Salary</th>
+        <th>Location</th>
+        <th>organization</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>Job Title</th>
+        <th>Salary</th>
+        <th>Location</th>
+        <th>organization</th>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    var table = $('#example').DataTable({
+      "ajax": {
+        "processing": true,
+        "serverSide": true,
+        "url": "{% url 'json_request_jobs' %}",
+        "dataSrc": ""
+      },
+      select: "single",
+      "columns": [{
+          "className": 'details-control',
+          "orderable": false,
+          "data": null,
+          "defaultContent": '',
+          "render": function() {
+            return '<i class="fa fa-plus-square" aria-hidden="true"></i>';
+          },
+          width: "15px"
+        },
+        {
+          "data": "fields.JobTitle" , "orderable": false
+        },
+        {
+          "data": "fields.salary"
+        },
+        {
+          "data": "fields.place", "orderable": false
+        },
+        {
+          "data": "fields.organization", "orderable": false
+        },
+
+      ],
+      "order": [
+        [1, 'asc']
+      ]
+    });
+
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.details-control', function() {
+      var tr = $(this).closest('tr');
+      var tdi = tr.find("i.fa");
+      var row = table.row(tr);
+
+      if (row.child.isShown()) {
+        // This row is already open - close it
+        row.child.hide();
+        tr.removeClass('shown');
+        tdi.first().removeClass('fa-minus-square');
+        tdi.first().addClass('fa-plus-square');
+      } else {
+        // Open this row
+        row.child(format(row.data())).show();
+        tr.addClass('shown');
+        tdi.first().removeClass('fa-plus-square');
+        tdi.first().addClass('fa-minus-square');
+      }
+    });
+
+    table.on("user-select", function(e, dt, type, cell, originalEvent) {
+      if ($(cell.node()).hasClass("details-control")) {
+        e.preventDefault();
+      }
+    });
+  });
+
+  function format(d) {
+
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+      '<tr>' +
+      '<td>Job description:</td>' +
+      '<td>' + d.fields.description + '</td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td>Url:</td>' +
+      '<td><a id="myAnchor" href="' + d.fields.link + '">Link</a></td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td>Extra info:</td>' +
+      '<td>And any further details here (images etc)...</td>' +
+      '</tr>' +
+      '</table>';
+  }
+
+</script>
+
+</html>
