@@ -2,3 +2,6 @@ textsum/glove.6B.100d.txt
 textSumAbstr/database.sqlite
 textSumAbstr/Reviews.csv
 textsum - test/glove.6B.100d.txt
+JobScrapper/web_django/src/glove.6B.100d.txt
+web_django/src/textsum/glove.6B.100d.txt
+web_django/src/glove.6B.100d.txt
