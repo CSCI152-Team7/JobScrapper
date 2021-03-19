@@ -7,7 +7,7 @@ ConfigArgParse==1.2.3
 Django==3.0.7
 django-datatables-view==1.19.1
 django-filter==2.2.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-datatables==0.5.2
 Flask==1.1.2
 gevent==20.4.0
